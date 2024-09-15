@@ -46,27 +46,27 @@ barplot(lca_model_3$P, main = "Class Probabilities (3 classes)", xlab = "Class",
 
 
 # I am not sure if entropy is a statistic worth using for model selection, but could add more context?
-# calculate_entropy <- function(post_probs) {
-#   # Calculate 
-#   entropy <- -rowSums(post_probs * log(post_probs + 1e-10)) # Adding a small value to avoid log(0)
-#   # Average across all observations
-#   avg_entropy <- mean(entropy)
-#   return(avg_entropy)
-# }
+calculate_entropy <- function(post_probs) {
+  # Calculate 
+  entropy <- -rowSums(post_probs * log(post_probs + 1e-10)) # Adding a small value to avoid log(0)
+  # Average across all observations
+  avg_entropy <- mean(entropy)
+  return(avg_entropy)
+}
 
-# #posterior probabilities for the 2-class model
-# post_probs_2 <- lca_model_2$posterior
+#posterior probabilities for the 2-class model
+post_probs_2 <- lca_model_2$posterior
 
-# # Calculate entropy for the 2-class model
-# entropy_2 <- calculate_entropy(post_probs_2)
-# cat("Entropy for 2-class model:", entropy_2, "\n")
+# Calculate entropy for the 2-class model
+entropy_2 <- calculate_entropy(post_probs_2)
+cat("Entropy for 2-class model:", entropy_2, "\n")
 
-# # posterior probabilities for the 3-class model
-# post_probs_3 <- lca_model_3$posterior
+# posterior probabilities for the 3-class model
+post_probs_3 <- lca_model_3$posterior
 
-# # Calculate entropy for the 3-class model
-# entropy_3 <- calculate_entropy(post_probs_3)
-# cat("Entropy for 3-class model:", entropy_3, "\n")
+# Calculate entropy for the 3-class model
+entropy_3 <- calculate_entropy(post_probs_3)
+cat("Entropy for 3-class model:", entropy_3, "\n")
 
 # # Output results
 # print(lca_model)
